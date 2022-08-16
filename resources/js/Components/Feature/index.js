@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel, CarouselIndicators, CarouselItem } from 'reactstrap';
+import {Carousel, CarouselControl, CarouselIndicators, CarouselItem} from 'reactstrap';
 import './style.css';
 
 const features =  [
@@ -55,6 +55,10 @@ const Features = () => {
         const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
         setActiveIndex(nextIndex);
     };
+    const goToIndex = (newIndex) => {
+        if (animating) return;
+        setActiveIndex(newIndex);
+    };
     const slides = items.map((item) => {
         return (
             <CarouselItem onExiting={onExiting} onExited={onExited} key={item.src}>
@@ -102,7 +106,10 @@ const Features = () => {
                             slide={false}
                             className="carousel-fade"
                         >
+                            <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} className="d-none"/>
                             {slides}
+                            <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+                            <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
                         </Carousel>
                     </div>
                 </div>

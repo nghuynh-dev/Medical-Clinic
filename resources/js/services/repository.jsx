@@ -18,7 +18,7 @@ class Repository {
             .get(`${endpoint}`, {
                 headers: {
                     Accept: 'application/json',
-                    // Authorization: `Bearer ${this.token}`,
+                    Authorization: `Bearer ${this.token}`,
                 },
                 params: data,
             })

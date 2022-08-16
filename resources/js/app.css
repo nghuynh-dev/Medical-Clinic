@@ -1,7 +1,6 @@
 html,
 body {
     scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
     height: 100%;
 }
 * {
@@ -74,21 +73,21 @@ p {
     font-size: 22px;
 }
 
-.heder-content {
-    height: 100vh;
-    position: relative;
-}
+/*.heder-content {*/
+/*    height: 100vh;*/
+/*    position: relative;*/
+/*}*/
 
-.heder-content::after {
-    z-index: -50;
-    height: 100vh;
-    content: ' ';
-    position: absolute;
-    top: 0;
-    width: 33%;
-    right: 0;
-    background-color: #3a4256;
-}
+/*.heder-content::after {*/
+/*    z-index: -50;*/
+/*    height: 100vh;*/
+/*    content: ' ';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    width: 33%;*/
+/*    right: 0;*/
+/*    background-color: #3a4256;*/
+/*}*/
 
 @media (max-width: 777px) {
     .heder-content::after {

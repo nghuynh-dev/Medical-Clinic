@@ -4,7 +4,11 @@
 /storage/*.key
 /vendor
 /.idea
+/reports
 .env
+/reports
+/public
+/coverage
 .env.backup
 .phpunit.result.cache
 docker-compose.override.yml
@@ -12,7 +16,4 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-package-lock.json
-public/mix-manifest.json
-public/js/app.js
-public/js/app.js.LICENSE.txt
+

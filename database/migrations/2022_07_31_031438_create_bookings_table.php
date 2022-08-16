@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('booking', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('patient_id');
-            $table->unsignedBigInteger('doctor_id');
-            $table->unsignedBigInteger('room_id');
             $table->date('date');
-            $table->date('time');
             $table->string('status');
-//            $table->foreign('patient_id')->references('id')->on('patient');
-//            $table->foreignId('doctor_id')->constrained('doctor');
-
+            $table->foreignId('doctor_id')->constrained('doctors');
+            $table->foreignId('room_id')->constrained('rooms');
+            $table->foreignId('patient_id')->constrained('patients');
             $table->timestamps();
         });
     }

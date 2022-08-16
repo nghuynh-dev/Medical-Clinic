@@ -13,25 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('invoice', function (Blueprint $table) {
+        Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
-            $table->string('price');
-            $table->unsignedBigInteger('patient_id');
-            $table->unsignedBigInteger('doctor_id');
-            $table->unsignedBigInteger('prescription_id');
-
-//            $table->foreignId('patient_id')->constrained('patient');
-//            $table->foreignId('doctor_id')->constrained('doctor');
-//            $table->foreignId('prescription_id')->constrained('prescription');
+            $table->decimal('price', 8, 2, true);
+            $table->timestamp('date');
+            $table->foreignId('patient_id')->constrained('patients');
+            $table->foreignId('doctor_id')->constrained('doctors');
+            $table->foreignId('prescription_id')->constrained('prescriptions');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('invoices');
