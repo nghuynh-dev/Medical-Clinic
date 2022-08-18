@@ -16,6 +16,9 @@ const Review = () => {
             .then(data => {
                 SetReviews(data);
             });
+        return () => {
+            SetReviews(); // This worked for me
+        };
     }, []);
 
     return (

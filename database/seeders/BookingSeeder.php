@@ -15,13 +15,14 @@ class BookingSeeder extends Seeder
      */
     public function run()
     {
-        Booking::create(["patient_id" => "5", "doctor_id" => "6", "room_id" => 6, "date" => "2022-08-11", "status" => 0]);
-        Booking::create(["patient_id" => "5", "doctor_id" => "4", "room_id" => 6, "date" => "2022-08-12", "status" => 1]);
-        Booking::create(["patient_id" => "1", "doctor_id" => "5", "room_id" => 5, "date" => "2022-08-13", "status" => 1]);
-        Booking::create(["patient_id" => "2", "doctor_id" => "6", "room_id" => 4, "date" => "2022-08-14", "status" => 2]);
-        Booking::create(["patient_id" => "6", "doctor_id" => "1", "room_id" => 3, "date" => "2022-08-15", "status" => 0]);
-        Booking::create(["patient_id" => "3", "doctor_id" => "2", "room_id" => 2, "date" => "2022-08-16", "status" => 1]);
-        Booking::create(["patient_id" => "4", "doctor_id" => "3", "room_id" => 1, "date" => "2022-08-17", "status" => 2]);
-
+        Booking::create(["gender" => 1, "age" => 25, "weight" => 60, "date" => "2022-08-12", "problem" => 'test', "status" => 0, 'doctor_id' => 1, 'room_id'=> 1, 'user_id' =>5]);
+        Booking::create(["gender" => 0, "age" => 35, "weight" => 60, "date" => "2022-08-11", "problem" => 'adf', "status" => 1, 'doctor_id' => 2, 'room_id'=> 1, 'user_id' =>2]);
+        Booking::create(["gender" => 1, "age" => 45, "weight" => 60, "date" => "2022-08-13", "problem" => 'tasdgfst', "status" => 2, 'doctor_id' => 3, 'room_id'=> 2, 'user_id' =>3]);
+        Booking::create(["gender" => 0, "age" => 25, "weight" => 60, "date" => "2022-08-15", "problem" => 'tesadgst', "status" => 1, 'doctor_id' => 4, 'room_id'=> 3, 'user_id' =>4]);
+        Booking::create(["gender" => 1, "age" => 25, "weight" => 60, "date" => "2022-08-17", "problem" => 'tesdgst', "status" => 2, 'doctor_id' => 5, 'room_id'=> 2, 'user_id' =>5]);
+        Booking::create(["gender" => 0, "age" => 65, "weight" => 60, "date" => "2022-08-22", "problem" => 'teasdfst', "status" => 0, 'doctor_id' => 6, 'room_id'=> 4, 'user_id' =>2]);
+        Booking::create(["gender" => 1, "age" => 55, "weight" => 60, "date" => "2022-08-01", "problem" => 'tesasgt', "status" => 0, 'doctor_id' => 7, 'room_id'=> 5, 'user_id' =>2]);
+        Booking::create(["gender" => 1, "age" => 15, "weight" => 60, "date" => "2022-08-12", "problem" => 'test', "status" => 1, 'doctor_id' => 8, 'room_id'=> 6, 'user_id' =>5]);
+        Booking::create(["gender" => 1, "age" => 25, "weight" => 60, "date" => "2022-08-12", "problem" => 'tegsasst', "status" => 2, 'doctor_id' => 9, 'room_id'=> 5, 'user_id' =>4]);
     }
 }

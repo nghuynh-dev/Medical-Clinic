@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Doctors/style.css'
 
-const DoctorCard = ({ doctorsData }) => {
+const DoctorCard = ({ doctorsData, modalController }) => {
     const { img, name, edu, speciality } = doctorsData;
     return (
         <div className="single-doctor">
@@ -20,7 +20,7 @@ const DoctorCard = ({ doctorsData }) => {
                 <p style={{fontSize: "16px"}} className="doctor-education">{edu}</p>
                 <div className="text-center">
                     <Link to="/appointment">
-                        <button className="btn btn-primary button-style mt-3">
+                        <button className="btn btn-primary button-style mt-3" onClick={() => modalController(doctorsData)}>
                             <FontAwesomeIcon icon={faCalendarCheck} className="mr-3" /> Book Appointment
                         </button>
                     </Link>

@@ -18,6 +18,7 @@ class BookingController extends Controller
     public function index()
     {
         return $this->bookingService->getBooking();
+//        return 'ads';
     }
     public function create()
     {
@@ -42,5 +43,9 @@ class BookingController extends Controller
     public function destroy(Booking $booking)
     {
         //
+    }
+    public function count()
+    {
+        return $this->bookingService->count();
     }
 }

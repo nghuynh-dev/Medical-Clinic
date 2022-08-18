@@ -10,7 +10,6 @@ const Appointment = () => {
     }, []);
     return (
         <div className="header-content">
-            {/*<Header />*/}
             <AppointmentSection />
             <AppointmentDoctor />
             <Footer />

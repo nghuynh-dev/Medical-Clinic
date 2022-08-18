@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
             RoomSeeder::class,
             ReviewSeeder::class,
             UserSeeder::class,
-            PatientSeeder::class,
             PrescriptionSeeder::class,
             BookingSeeder::class,
         ]);

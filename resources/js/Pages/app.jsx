@@ -6,28 +6,37 @@ import Dashboard from "../Components/Dashboard";
 import {createContext, useEffect, useState} from "react";
 import Header from "../Components/Header";
 import axios from "../services/base.service";
+import {useLayoutEffect} from "react";
+import ManageAppointment from "../Components/ManageAppointment";
+import ManageUser from "../Components/ManageUser";
+import Repository from "../services/repository";
 
 export const DataContext = createContext();
 export const CalenderContext = createContext();
 function App() {
     const [ date, setDate ] = useState(new Date());
+    const [ userToken, setUserToken ] = useState('')
     const [ doctor, setDoctor ] = useState([]);
-    // console.log(date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate())
+    const [ booking, setBooking ] = useState([]);
     const calenderContextValue = { date, setDate };
-    const contextData = {
-        doctor
-    };
 
-    //api doctor
-    useEffect(() => {
-            fetch('http://localhost:8000/api/doctor')
-                .then((res) => res.json())
-                .then((data) => {
-                    setDoctor(data);
-                });
-        },
-        [ doctor.length ]
-    );
+    useEffect(async () => {
+        const endpoint = 'booking'
+        const response = await Repository.get(endpoint)
+        setBooking(response.data)
+
+        const endpoint1 = 'user_token'
+        const response1 = await Repository.get(endpoint1)
+        setUserToken(response1?.data)
+
+        const endpoint2 = 'doctor'
+        const response2 = await Repository.get(endpoint2)
+        setDoctor(response2?.data)
+    },[])
+
+    const contextData = {
+        doctor, userToken, booking
+    };
     return (
         <DataContext.Provider value={contextData}>
             <CalenderContext.Provider value={calenderContextValue}>
@@ -38,6 +47,15 @@ function App() {
                                 <Route path="/dashboard">
                                     <Dashboard />
                                 </Route>
+                                <Route path="/dashboard/appointment">
+                                    <ManageAppointment />
+                                </Route>
+                                <Route path="/dashboard/user">
+                                    <ManageUser />
+                                </Route>
+                                {/*<Route path="/dashboard/prescriptions">*/}
+                                {/*    <ManagePrescriptions />*/}
+                                {/*</Route>*/}
                                 <Route exact path="/">
                                     <Header />
                                     <Home />

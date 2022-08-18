@@ -12,9 +12,7 @@ const Contacts = () => {
 
     return (
         <div className="header-content">
-            {/*<Header />*/}
             <Banner />
-            {/*<Contact />*/}
             <Footer />
         </div>
     );

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('medicine');
             $table->string('doge');
             $table->integer('days');
-            $table->foreignId('patient_id')->constrained('patients');
+            $table->foreignId('booking_id')->constrained('bookings');
         });
     }
 

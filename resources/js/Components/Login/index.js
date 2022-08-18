@@ -22,11 +22,10 @@ const Login = () => {
                 username: username,
                 password: password,
             };
-
             const response = await axios.post("/login", data);
             localStorage.setItem("token", response.data.token);
             if(response.data.admin === 1){
-                window.location.href = "http://localhost:8000/dashboard";
+                window.location.href = "/dashboard";
             }
             else window.location.reload();
         } catch (err) {
@@ -45,10 +44,10 @@ const Login = () => {
             };
             const response = await axios.post("/register", data);
             if(response.status === 201){
-                setMess('Create Success !!! Redirect to login page after 3 seconds')
-                let seconds = 3;
+                let seconds = 5;
                 setInterval(() => {
                     seconds--
+                    setMess(`Create Success !!! Redirect to login page after ${seconds} seconds`)
                     if (seconds === 0){
                         window.location.href = "/";
                     }
