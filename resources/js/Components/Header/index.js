@@ -4,7 +4,7 @@ import logo from '../../../assets/images/logo.png'
 import Nav from 'react-bootstrap/Nav';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import {Button, ButtonGroup} from "reactstrap";
+import {ButtonGroup} from "reactstrap";
 import axios from "../../services/base.service";
 import './style.css';
 import {DataContext} from "../../Pages/app";
@@ -103,7 +103,7 @@ export default function Header(){
                             id={'dropdown-button-drop-down'}
                             drop={'down'}
                             style={{ marginLeft : "50px", padding: "0"}}
-                            title={userToken}
+                            title={userToken ? userToken : ''}
                         >
                             <Dropdown.Item onClick={handleLogout}>Log out</Dropdown.Item>
                         </DropdownButton>

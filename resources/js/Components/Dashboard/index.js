@@ -6,7 +6,6 @@ import {DataContext} from "../../Pages/app";
 import {COLUMNS} from "./columns";
 
 export default function Dashboard(){
-    const [show, setShow] = useState(false)
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -27,7 +26,7 @@ export default function Dashboard(){
     return (
         <div className="container-fluid row">
             <Sidebar />
-            <div id="responsive-dashboard"className="col-md-10 p-4 pr-5" style={{ position: 'absolute', right: 0, backgroundColor: '#F4FDFB' }}>
+            <div id="responsive-dashboard" className="col-md-10 p-4 pr-5" style={{ position: 'absolute', right: 0, backgroundColor: '#F4FDFB' }}>
                 <div className="row">
                     <div className="col-md-3">
                         <div className={"d-flex align-items-center p-3 px-4  rounded text-white bg-danger"}>
