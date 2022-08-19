@@ -3,7 +3,7 @@ import React, {useContext, useEffect, useMemo, useState} from "react";
 import Repository from '../../services/repository'
 import Table from "../Table";
 import {DataContext} from "../../Pages/app";
-import {COLUMNS} from "../Table/columns";
+import {COLUMNS} from "./columns";
 
 export default function Dashboard(){
     useEffect(() => {
@@ -55,7 +55,7 @@ export default function Dashboard(){
                 </div>
                 <div className="bg-white rounded shadow-sm p-3">
                     <div className="py-3 d-flex align-items-center justify-content-between">
-                        <h2 className="text-primary">Dashboard</h2>
+                        <h2 className="text-primary">Manage Appointment</h2>
                     </div>
                     <Table columns={columns} data={data}/>
                 </div>
