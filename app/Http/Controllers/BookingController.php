@@ -32,7 +32,7 @@ class BookingController extends Controller
     {
         //
     }
-    public function edit(Booking $booking)
+    public function edit($id)
     {
         //
     }
@@ -47,5 +47,13 @@ class BookingController extends Controller
     public function count()
     {
         return $this->bookingService->count();
+    }
+    public function approved($id)
+    {
+        return $this->bookingService->approved($id);
+    }
+    public function decline($id)
+    {
+        return $this->bookingService->decline($id);
     }
 }

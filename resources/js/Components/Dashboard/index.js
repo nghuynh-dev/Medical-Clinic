@@ -6,17 +6,19 @@ import {DataContext} from "../../Pages/app";
 import {COLUMNS} from "./columns";
 
 export default function Dashboard(){
+    const [show, setShow] = useState(false)
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-
     const [count, setCount] = useState('')
     useEffect(async () => {
         const endpoint = 'booking/count'
         const response = await Repository.get(endpoint)
         setCount(response?.data)
+        return () => {
+            setCount('');
+        };
     },[])
-
     const contextData = useContext(DataContext)
     const booking = contextData.booking
     const columns = useMemo(() => COLUMNS, [])
@@ -26,30 +28,29 @@ export default function Dashboard(){
         <div className="container-fluid row">
             <Sidebar />
             <div id="responsive-dashboard"className="col-md-10 p-4 pr-5" style={{ position: 'absolute', right: 0, backgroundColor: '#F4FDFB' }}>
-                <h5>Analysis</h5>
-                <div className="row my-5">
+                <div className="row">
                     <div className="col-md-3">
                         <div className={"d-flex align-items-center p-3 px-4  rounded text-white bg-danger"}>
-                            <h1 className="w-25 mr-2">{count.pending}</h1>
+                            <h1 className="w-25 mr-2">{count ? count.pending : 0}</h1>
                             <h6>Pending Appointments</h6>
                         </div>
                     </div>
                     <div className="col-md-3">
                         <div className={"d-flex align-items-center p-3 px-4  rounded text-white bg-warning"}>
-                            <h1 className="w-25 mr-2">{count.today}</h1>
+                            <h1 className="w-25 mr-2">{count ? count.today : 0}</h1>
                             <h6>Today Appointments</h6>
                         </div>
                     </div>
                     <div className="col-md-3">
                         <div className={"d-flex align-items-center p-3 px-4  rounded text-white bg-success"}>
-                            <h1 className="w-25 mr-2">{count.total}</h1>
+                            <h1 className="w-25 mr-2">{count ? count.total : 0}</h1>
                             <h6>Total Appointments</h6>
                         </div>
                     </div>
                     <div className="col-md-3">
                         <div className={"d-flex align-items-center p-3 px-4  rounded text-white bg-info"}>
-                            <h1 className="w-25 mr-2">{count.user}</h1>
-                            <h6>Total User</h6>
+                            <h1 className="w-25 mr-2">{count ? count.user - 1 : 0}</h1>
+                            <h6>Total Patient</h6>
                         </div>
                     </div>
                 </div>

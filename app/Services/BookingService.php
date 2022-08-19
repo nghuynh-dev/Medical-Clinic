@@ -13,7 +13,6 @@ class BookingService
     public function getBooking()
     {
         return Booking::sortDate();
-//        return 'adsf';
     }
     public function store($data)
     {
@@ -29,6 +28,36 @@ class BookingService
             'doctor_id' => $data['doctor_id'],
             'room_id' => $data['room_id']
         ]);
+    }
+    public function approved($id)
+    {
+        $booking = Booking::findOrFail($id);
+        if ($booking->status == 0) {
+            $booking->status = 1;
+            $booking->save();
+            return response()->json([
+                'message' => 'state has change to approved'
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'check state'
+            ], 400);
+        }
+    }
+    public function decline($id)
+    {
+        $booking = Booking::findOrFail($id);
+        if ($booking->status == 0) {
+            $booking->status = 2;
+            $booking->save();
+            return response()->json([
+                'message' => 'state has change to decline'
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'check state'
+            ], 400);
+        }
     }
     public function count()
     {

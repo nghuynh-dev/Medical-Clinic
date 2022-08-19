@@ -2,14 +2,12 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import {Appointment, Contacts, Home, Reviews} from './index'
 import NotFound from "../Components/NotFound";
 import Login from "../Components/Login";
-import Dashboard from "../Components/Dashboard";
 import {createContext, useEffect, useState} from "react";
 import Header from "../Components/Header";
-import axios from "../services/base.service";
-import {useLayoutEffect} from "react";
-import ManageAppointment from "../Components/ManageAppointment";
 import ManageUser from "../Components/ManageUser";
 import Repository from "../services/repository";
+import ManageDoctor from "../Components/ManageAppointment";
+import Dashboard from "../Components/Dashboard";
 
 export const DataContext = createContext();
 export const CalenderContext = createContext();
@@ -44,13 +42,13 @@ function App() {
                     {localStorage.getItem("token")  ? (
                         <>
                             <Switch>
-                                <Route path="/dashboard">
+                                <Route exact path="/dashboard">
                                     <Dashboard />
                                 </Route>
-                                <Route path="/dashboard/appointment">
-                                    <ManageAppointment />
+                                <Route exact path="/dashboard/doctor">
+                                    <ManageDoctor />
                                 </Route>
-                                <Route path="/dashboard/user">
+                                <Route exact path="/dashboard/user">
                                     <ManageUser />
                                 </Route>
                                 {/*<Route path="/dashboard/prescriptions">*/}
@@ -60,15 +58,15 @@ function App() {
                                     <Header />
                                     <Home />
                                 </Route>
-                                <Route path="/appointment">
+                                <Route exact path="/appointment">
                                     <Header />
                                     <Appointment />
                                 </Route>
-                                <Route path="/reviews">
+                                <Route exact path="/reviews">
                                     <Header />
                                     <Reviews />
                                 </Route>
-                                <Route path="/contact">
+                                <Route exact path="/contact">
                                     <Header />
                                     <Contacts />
                                 </Route>

@@ -14,6 +14,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/booking/count', [BookingController::class, 'count']);
 Route::post('/login', [AuthenticationController::class, 'login']);
 Route::post('/register', [AuthenticationController::class, 'register']);
+Route::get('/booking/{id}/approved', [BookingController::class, 'approved']);
+Route::get('/booking/{id}/decline', [BookingController::class, 'decline']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/logout', [AuthenticationController::class, 'logout']);
