@@ -10,4 +10,5 @@ class Doctor extends Model
     use HasFactory;
 
     public $timestamps = false;
+
 }

@@ -4,9 +4,8 @@ import {CalenderContext, DataContext} from "../../Pages/app";
 import DoctorCard from "../DoctorCard";
 import "./style.css";
 import Modal from 'react-modal';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCheckCircle} from "@fortawesome/free-solid-svg-icons";
 import axios from "../../Services/base.service";
+import Swal from "sweetalert2";
 
 export default function AppointmentDoctor() {
     const contextCalendar = useContext(CalenderContext);
@@ -31,6 +30,34 @@ export default function AppointmentDoctor() {
         setIsBooked(false);
         setShowModal(false);
     };
+
+    let timerInterval
+    const alert = () => {
+        Swal.fire({
+            icon: 'success',
+            title: 'Make booking successfully',
+            html: 'Popup will close in <b></b> milliseconds.',
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+                setIsBooked(false);
+                setShowModal(false);
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer')
+            }
+        })
+    }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -74,37 +101,29 @@ export default function AppointmentDoctor() {
                         )}
                 </div>
             </div>
-            <Modal
-                isOpen={showModal}
-                ariaHideApp={false}
-                onRequestClose={() => setShowModal(false)}
-                id="modal-responsive"
-                style={{
-                    overlay: {
-                        backgroundColor: 'rgba(130,125,125,0.75)'
-                    },
-                    content: {
-                        top: '55%',
-                        left: '50%',
-                        right: 'auto',
-                        bottom: 'auto',
-                        marginRight: '-50%',
-                        width: '45%',
-                        transform: 'translate(-50%, -50%)',
-
-                    }
-                }}
-            >
-                {isBooked ? (
-                    <div className="text-center  py-5 my-5">
-                        <FontAwesomeIcon className="text-success" style={{ fontSize: '5em' }} icon={faCheckCircle} />
-                        <h4 className="mt-5 lead">Appointment Request Sent!</h4>
-                        <p className="mt-5 px-3">
-                            Booking appointment successful, please wait for the call from the Medical Center !
-                        </p>
-                        <span className="d-none">{setTimeout(successView, 5000)}</span>
-                    </div>
-                ) : (
+                {isBooked ? alert()
+                    :
+                    (
+                        <Modal
+                            isOpen={showModal}
+                            ariaHideApp={false}
+                            onRequestClose={() => setShowModal(false)}
+                            id="modal-responsive"
+                            style={{
+                                overlay: {
+                                    backgroundColor: 'rgba(130,125,125,0.75)'
+                                },
+                                content: {
+                                    top: '55%',
+                                    left: '50%',
+                                    right: 'auto',
+                                    bottom: 'auto',
+                                    marginRight: '-50%',
+                                    width: '45%',
+                                    transform: 'translate(-50%, -50%)',
+                                }
+                            }}
+                        >
                         <div className="px-4">
                             <h4 className="text-primary text-center">{doctor && doctor.edu}{' '}{doctor && doctor.speciality}</h4>
                             <h5 className="text-center style-color">{doctor && doctor.name}</h5>
@@ -197,9 +216,9 @@ export default function AppointmentDoctor() {
                                 </div>
                             </form>
                         </div>
-
-                )}
-            </Modal>
+                        </Modal>
+                    )
+                }
         </div>
     )
 }

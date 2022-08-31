@@ -23,7 +23,6 @@ export default function Home(){
             <Feature />
             <Review />
             <Blog />
-            {/*<Contact />*/}
             <Footer />
         </div>
     )

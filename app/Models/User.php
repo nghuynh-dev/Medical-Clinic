@@ -14,7 +14,7 @@ class User extends Authenticatable
     use HasFactory;
     use Notifiable;
 
-    public $timestamps = false;
+    public $timestamps = true;
     protected $table = 'user';
 
     /**
@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'patient_name',
         'phone',
         'username',
         'email',

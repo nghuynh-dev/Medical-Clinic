@@ -41,6 +41,7 @@
         "reactstrap": "^9.1.1",
         "redux": "^4.2.0",
         "redux-thunk": "^2.4.1",
+        "sweetalert2": "^11.4.28",
         "swiper": "^6.8.4"
     }
 }

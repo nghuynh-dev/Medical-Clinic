@@ -15,15 +15,15 @@ class DoctorSeeder extends Seeder
      */
     public function run()
     {
-        Doctor::create(["name" => "Tung Nguyen Thanh", "img" => "https://img.medlatec.vn/ImagePath/imagesDoctor/20190909/20190909_BS-nguyen-cong-duy-C%C4%90HA.jpg", "edu" => "Associate Professor Ph.D", "speciality" => "Dentist"]);
-        Doctor::create(["name" => "Huong Mai Van", "img" => "https://img.medlatec.vn/ImagePath/imagesDoctor/20191207/20191207_bs%20H%C6%B0%C6%A1ng%20C%C4%90HA%202.jpg", "edu" => "Bachelor of Medicine", "speciality" => "Surgery"]);
-        Doctor::create(["name" => "Tung Phan Dinh", "img" => "https://img.medlatec.vn/ImagePath/imagesDoctor/20190924/20190924_bac%20si_3.png", "edu" => "Doctor of Medicine", "speciality" => "Oncology"]);
-        Doctor::create(["name" => "Huy Ngo Kien", "img" => "https://img.medlatec.vn/ImagePath/imagesDoctor/20190909/20190909_TK-BS-bui-van-hai-CK-noi.jpg", "edu" => "Associate Professor Ph.D", "speciality" => "Nuclear medicine"]);
-        Doctor::create(["name" => "Ky Ly Nha", "img" => "https://img.medlatec.vn/ImagePath/imagesDoctor/20210319/20210319_BS%20Len.png", "edu" => "Bachelor of Medicine", "speciality" => "Allergy"]);
-        Doctor::create(["name" => "Phuc Ung Hoang", "img" => "https://img.medlatec.vn/ImagePath/imagesDoctor/20220418/20220418_ANHPROFILE-01.png", "edu" => "Doctor of Medicine", "speciality" => "Cardiology"]);
-        Doctor::create(["name" => "Binh Trinh Thang", "img" => "https://img.medlatec.vn/ImagePath/imagesDoctor/20210406/20210406_BS_Th%C6%B0%E1%BB%9Fng.png", "edu" => "Associate Professor Ph.D", "speciality" => "Dermatology"]);
-        Doctor::create(["name" => "Hai Ly", "img" => "https://img.medlatec.vn/ImagePath/imagesDoctor/20211027/20211027_ThayPhuong.png", "edu" => "Bachelor of Medicine", "speciality" => "Dietetics "]);
-        Doctor::create(["name" => "Vu Nguyen Anh", "img" => "https://img.medlatec.vn/ImagePath/imagesDoctor/20190909/20190909_Ths-Bs-hoang-thi-thuy-CK-noi.jpg", "edu" => "Doctor of Medicine", "speciality" => "Geriatrics"]);
-        Doctor::create(["name" => "Khang Nguyen Gia", "img" => "https://img.medlatec.vn/ImagePath/imagesDoctor/20190909/20190909_ThS-bs-do-duc-linh-ck-cdha.jpg", "edu" => "Associate Professor Ph.D", "speciality" => "Neurology"]);
+        Doctor::create(["name" => "Tung Nguyen Thanh", "img" => "img1", "edu" => "Associate Professor Ph.D", "speciality" => "Dentist", "joined" => "2005-08-12", 'address' => '	106, 30/4 Street, Ninh Kieu District, Can Tho City']);
+        Doctor::create(["name" => "Huong Mai Van", "img" => "img2", "edu" => "Bachelor of Medicine", "speciality" => "Surgery", "joined" => "2015-08-12", 'address' => 'Long Son Commune, Vung Tau City, Ba Ria-Vung Tau Province']);
+        Doctor::create(["name" => "Tung Phan Dinh", "img" => "img3", "edu" => "Doctor of Medicine", "speciality" => "Oncology", "joined" => "2022-08-12", 'address' => '	3A1, 30/04 Street, Ninh Kieu District, Can Tho City']);
+        Doctor::create(["name" => "Huy Ngo Kien", "img" => "img4", "edu" => "Associate Professor Ph.D", "speciality" => "Nuclear medicine", "joined" => "2009-08-19", 'address' => '31 Lang Ha Street Ba Dinh District,Hanoi,Vietnam']);
+        Doctor::create(["name" => "Ky Ly Nha", "img" => "img5", "edu" => "Bachelor of Medicine", "speciality" => "Allergy", "joined" => "1999-08-12", 'address' => '193 Nguyen Van Thu Street  Dakao Ward District 1,Ho Chi Minh City,Vietnam']);
+        Doctor::create(["name" => "Phuc Ung Hoang", "img" => "img6", "edu" => "Doctor of Medicine", "speciality" => "Cardiology", "joined" => "2022-08-12", 'address' => '43/17 Su Van Hanh Str.[ext.] Ward 12 Dist.10,Ho Chi Minh City,Vietnam']);
+        Doctor::create(["name" => "Binh Trinh Thang", "img" => "img7", "edu" => "Associate Professor Ph.D", "speciality" => "Dermatology", "joined" => "2000-07-06", 'address' => '106/1133 Le Duc Tho Ward 13,Gia Lai,Vietnam']);
+        Doctor::create(["name" => "Hai Ly", "img" => "img8", "edu" => "Bachelor of Medicine", "speciality" => "Dietetics ", "joined" => "2021-08-19", 'address' => '164 Nam Ky Khoi Nghia St. Ward 6 Dist. 3,Ho Chi Minh City,Vietnam']);
+        Doctor::create(["name" => "Vu Nguyen Anh", "img" => "img9", "edu" => "Doctor of Medicine", "speciality" => "Geriatrics", "joined" => "2015-08-19", 'address' => '154 Cong Quynh Street Pham Ngu Lao Ward District 1,Ho Chi Minh City,Vietnam']);
+        Doctor::create(["name" => "Khang Nguyen Gia", "img" => "img10", "edu" => "Associate Professor Ph.D", "speciality" => "Neurology", "joined" => "2002-01-12", 'address' => '88 Ho Bieu Chanh St. Ward 11,Ho Chi Minh City,Vietnam']);
     }
 }

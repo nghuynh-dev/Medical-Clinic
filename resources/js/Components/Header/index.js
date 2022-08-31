@@ -25,6 +25,9 @@ export default function Header(){
         case 'appointment':
             currentPage = '/appointment'
             break
+        case 'my-booking':
+            currentPage = '/my-booking'
+            break
         case 'reviews':
             currentPage = '/reviews'
             break
@@ -89,6 +92,9 @@ export default function Header(){
                         </Nav.Link>
                         <Nav.Link eventKey={"/appointment"} className="nav-item" as={Link} to="/appointment">
                             Make Appointment
+                        </Nav.Link>
+                        <Nav.Link eventKey={"/my-booking"} className="nav-item" as={Link} to="/my-booking">
+                            My Booking
                         </Nav.Link>
                         <Nav.Link eventKey={"/reviews"} className="nav-item" as={Link} to="/reviews">
                             Reviews

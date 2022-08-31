@@ -10,5 +10,10 @@ class Prescription extends Model
     use HasFactory;
 
     public $timestamps = false;
-
+    protected $fillable = [
+        'booking_id',
+        'medicine',
+        'doge',
+        'days',
+    ];
 }

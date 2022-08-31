@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
-use App\Http\Requests\StoreBookingRequest;
 use App\Http\Requests\UpdateBookingRequest;
 use App\Services\BookingService;
 use Illuminate\Http\Request;
@@ -28,9 +27,9 @@ class BookingController extends Controller
     {
         return $this->bookingService->store($request);
     }
-    public function show(Booking $booking)
+    public function show($id)
     {
-        //
+        return $this->bookingService->show($id);
     }
     public function edit($id)
     {
@@ -55,5 +54,9 @@ class BookingController extends Controller
     public function decline($id)
     {
         return $this->bookingService->decline($id);
+    }
+    public function bookingOfUser()
+    {
+        return $this->bookingService->bookingOfUser();
     }
 }

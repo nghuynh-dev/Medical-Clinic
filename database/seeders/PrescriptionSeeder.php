@@ -15,14 +15,7 @@ class PrescriptionSeeder extends Seeder
      */
     public function run()
     {
-//        Prescription::create(["medicine" => "Aspirin", "doge" => "Morning, Evening", "days" => 3, "patient_id" => 3]);
-//        Prescription::create(["medicine" => "Panadol", "doge" => "Afternoon", "days" => 5, "patient_id" => 3]);
-//        Prescription::create(["medicine" => "Efferalgan", "doge" => "Morning, Afternoon", "days" => 3, "patient_id" => 3]);
-//        Prescription::create(["medicine" => "Prospan", "doge" => "Afternoon", "days" => 7, "patient_id" => 3]);
-//        Prescription::create(["medicine" => "Aspirin", "doge" => "Morning, Evening", "days" => 3, "patient_id" => 4]);
-//        Prescription::create(["medicine" => "Panadol", "doge" => "Afternoon", "days" => 5, "patient_id" => 4]);
-//        Prescription::create(["medicine" => "Efferalgan", "doge" => "Morning, Afternoon", "days" => 3, "patient_id" => 5]);
-//        Prescription::create(["medicine" => "Prospan", "doge" => "Afternoon", "days" => 7, "patient_id" => 6]);
-
+//        Prescription::create(["medicine" => "Aspirin", "doge" => "1 - 1 - 1", "days" => 3, "booking_id" => 3]);
+//        Prescription::create(["medicine" => "Panadol", "doge" => "1 - 0 - 1", "days" => 5, "booking_id" => 3]);
     }
 }

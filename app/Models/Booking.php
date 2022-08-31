@@ -21,7 +21,14 @@ class Booking extends Model
         'weight',
         'problem',
     ];
-
+    public function scopeDetail($query)
+    {
+        return $query
+            ->leftJoin('user', 'user.id', 'bookings.user_id')
+            ->leftJoin('doctors', 'doctors.id', 'bookings.doctor_id')
+            ->select('bookings.*', 'doctors.name', 'user.patient_name', 'user.phone', 'doctors.edu')
+            ->get();
+    }
     public function scopePending($query)
     {
         return $query->where('bookings.status', 0)->count();
@@ -44,7 +51,24 @@ class Booking extends Model
             ->orderBy('bookings.status')
             ->orderBy('bookings.date')
             ->orderBy('bookings.id')
-            ->select('bookings.*', 'doctors.name', 'rooms.room_name', 'user.patient_name')
+            ->select('bookings.*', 'doctors.name', 'rooms.room_name', 'user.patient_name', 'user.phone')
             ->get();
+    }
+    public function scopeBookingOfUser($query, $request)
+    {
+        return $query
+            ->leftJoin('doctors', 'doctors.id', 'bookings.doctor_id')
+            ->leftJoin('rooms', 'rooms.id', 'bookings.room_id')
+            ->leftJoin('user', 'user.id', 'bookings.user_id')
+            ->orderBy('bookings.date', 'desc')
+            ->select(
+                'bookings.*',
+                'doctors.name',
+                'doctors.speciality',
+                'rooms.room_name',
+                'user.patient_name',
+                'user.phone'
+            )
+            ->where('bookings.user_id', $request)->get();
     }
 }

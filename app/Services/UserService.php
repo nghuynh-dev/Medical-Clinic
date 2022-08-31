@@ -10,4 +10,10 @@ class UserService
     {
         return auth('sanctum')->user();
     }
+    public function getListUser()
+    {
+        $user = User::all();
+
+        return $user;
+    }
 }

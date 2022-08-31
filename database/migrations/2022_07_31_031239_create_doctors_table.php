@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('img');
             $table->string('edu');
             $table->string('speciality');
+            $table->string('address');
+            $table->date('joined');
+//            $table->foreignId('booking_id')->constrained('bookings');
         });
     }
 

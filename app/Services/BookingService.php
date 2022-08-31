@@ -2,9 +2,7 @@
 
 namespace App\Services;
 
-use App\Http\Resources\BookingCollection;
 use App\Models\Booking;
-use App\Models\Patient;
 use App\Models\User;
 use Carbon\Carbon;
 
@@ -13,6 +11,10 @@ class BookingService
     public function getBooking()
     {
         return Booking::sortDate();
+    }
+    public function show($id)
+    {
+        return Booking::detail()->find($id);
     }
     public function store($data)
     {
@@ -71,5 +73,10 @@ class BookingService
             'total' => $total,
             'user' => $user
         ]);
+    }
+    public function bookingOfUser()
+    {
+        $id = auth('sanctum')->user()->id;
+        return Booking::bookingOfUser($id);
     }
 }
